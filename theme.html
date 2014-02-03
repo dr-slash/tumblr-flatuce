@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- FLATUCE V1 BY DRSLASH.COM -->
+    <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <meta name="description" content="{block:IndexPage}{block:Description}{MetaDescription}{/block:Description}{/block:IndexPage}{block:PermalinkPage}{block:PostSummary}{PostSummary}{/block:PostSummary}{/block:PermalinkPage}" />
+    <meta name="keywords" content="{Title}, {block:Tags}{Tag}, {/block:Tags}" />
+        <!-- OpenGraph -->
+    <meta property="og:site_name" content="{Title}"/>
+    {block:IndexPage}
+    <meta property="og:title" content="{Title}"/>
+    <meta property="og:type" content="tumblr-feed:tumblelog"/>
+    <meta property="og:description" content="{MetaDescription}"/>
+    <meta property="og:image" content="{PortraitURL-128}"/>
+    {/block:IndexPage}
+    {block:PermalinkPage}
+    <meta property="og:url" content="{Permalink}"/>
+    {block:Posts}
+    {block:Text}
+        <meta property="og:type" content="tumblr-feed:text"/>
+        {block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}
+        <meta property="og:description" content="{PlaintextBody}"/>
+    {/block:Text}
+    {block:Photo}
+        <meta property="og:type" content="tumblr-feed:photo"/>
+        <meta property="og:image" content="{PhotoURL-HighRes}"/>
+    	{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+    {/block:Photo}
+    {block:Photoset}
+        <meta property="og:type" content="tumblr-feed:photoset"/>
+    	{block:Photos}
+    	<meta property="og:image" content="{PhotoURL-HighRes}"/>
+        {/block:Photos}
+    	{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+    {/block:Photoset}
+    {block:Quote}
+        <meta property="og:type" content="tumblr-feed:quote"/>
+    	<meta property="og:title" content="{PlaintextQuote}"/>
+    	<meta property="og:description" content="{PlaintextSource}"/>
+    	<meta property="og:image" content="{PortraitURL-64}"/>
+    {/block:Quote}
+    {block:Link}
+        <meta property="og:type" content="tumblr-feed:link"/>
+    	<meta property="og:title" content="{PlaintextName}"/>
+    	<meta property="og:description" content="{PlaintextDescription}"/>
+    	<meta property="og:image" content="{PortraitURL-64}"/>
+    {/block:Link}
+    {block:Chat}
+        <meta property="og:type" content="tumblr-feed:chat"/>
+    	<meta property="og:title" content="{PlaintextTitle}"/>
+    	<meta property="og:description" content="{block:Lines}{block:Label}{Label}: {/block:Label}{Line} &bull; {/block:Lines}"/>
+    	<meta property="og:image" content="{PortraitURL-64}"/>
+    {/block:Chat}
+    {block:Audio}
+        <meta property="og:type" content="tumblr-feed:audio"/>
+    	<meta property="og:title" content="{block:Artist}{Artist} - {/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
+    	<meta property="og:description" content="{PlaintextCaption}"/>
+    	{block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}
+    {/block:Audio}
+    {block:Video}
+        <meta property="og:type" content="tumblr-feed:video"/>
+    	{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}
+    {/block:Video}
+    {block:Answer}
+        <meta property="og:type" content="tumblr-feed:answer"/>
+    	<meta property="og:title" content="{PlaintextQuestion}"/>
+    	<meta property="og:description" content="{PlaintextAnswer}"/>
+    	<meta property="og:image" content="{PortraitURL-64}"/>
+    {/block:Answer}
+    {/block:Posts}
+    {/block:PermalinkPage}
+    <!-- VIEWPORT -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, unser-scalable=no">
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+        <!-- COLORS -->
+        <meta name="color:Background"   content="#F6F8F8"/>
+        <meta name="color:Sidebar"      content="#5A6673"/>
+        <meta name="color:Variant"      content="#00C39E"/>
+        <meta name="color:Text"         content="#9DACBC"/>
+        <meta name="color:Text Dark"    content="#3F4A57"/>
+        <!-- IMAGE UPLOADS -->
+        <meta name="image:Header"       content=""/>
+        <!-- THE IF'S -->
+        <meta name="if:Show Archive Link" content="1"/>
+        <meta name="if:Show Ask Link" content="1"/>
+        <meta name="if:Show Description" content="1"/>
+        <meta name="if:Show Copyright" content="1"/>
+        <!-- TEXTS -->
+        <meta name="text:Facebook Username" content=""/>
+        <meta name="text:Pinterest Username" content=""/>
+        <meta name="text:Twitter Username" content=""/>
+        <meta name="text:Disqus Shortname" content=""/>
+
+        <style type="text/css" media="screen">
+            @import url(http://fonts.googleapis.com/css?family=Exo:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+            html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{font-size:100%;font:inherit;padding:0;border:0;margin:0;vertical-align:baseline}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+            body {background-color:{color:Background};font-family: 'Exo', sans-serif;font-size:15px;letter-spacing:1px;}
+            html, body { margin: 0; border: 0 none; padding: 0;min-height:100%; }
+            html, body, #wrapper, .left-col, .right-col {}
+            *:active, *:focus { color:{color:Sidebar}; }
+            ::-webkit-input-placeholder {color:{color:Sidebar};font-style:italic;}
+            :-moz-placeholder {color:{color:Sidebar};font-style:italic;}
+            ::-moz-placeholder {color:{color:Sidebar};font-style:italic;}
+            :-ms-input-placeholder {color:{color:Sidebar};font-style:italic;}
+            .clear{clear:both;}
+            .rounded {-webkit-border-radius: 6px;border-radius: 6px; }
+            #wrapper {margin:0;display: table;}
+            #wrapper .left-col, #wrapper .right-col {display: table-cell;vertical-align:top;}
+            img { max-width: 100%; }
+            div.left-col{width:35%;background-color:{color:Sidebar};margin:0;padding:0;{block:PermalinkPage}min-height:1480px;{block:PermalinkPage}}
+            div.right-col{width:65%;}
+            /* TOP BARS */
+            .left-col .left-col-top {background: rgba(0, 0, 0, 0.5);}
+            .left-col .left-col-top, .right-col .twitts {min-height:64px;}
+            .right-col .twitts {background:{color:Variant} url('http://static.tumblr.com/v7susgd/5uNmp7o3n/twitts.png') top left no-repeat;}
+            .right-col .twitts:hover {background:{color:Text Dark} url('http://static.tumblr.com/v7susgd/5uNmp7o3n/twitts.png') top left no-repeat;} 
+            .right-col .twitts .twitt-txt {color:white;font-size:18px;font-style:italic;}
+            .right-col .twitts .twitt-txt a {display:block;padding:22px 50px 0px 110px;color:white;text-decoration:none;}
+            .right-col .twitts .twitt-txt a:hover {color:{color:Text};padding:22px 50px 0px 115px;}
+            .social-links {list-style:none;margin:0;padding:0;}
+            .social-links li {float:left;margin:0 1px -1px 0;}
+            .social-links li a {opacity:.7;}
+            .social-links li a:hover {opacity:1;}
+            .branding {background: rgba(0, 0, 0, 0.3);position:relative;height:200px;}
+            .branding a {position:absolute;bottom:50px;left:50px;text-decoration:none;color:{color:Variant};text-decoration:none;font-size:30px;font-style:italic;font-weight:600;}
+            .branding a:hover {color:{color:Background};}
+            .left-col-content {padding:50px;}
+            .left-col-content .desc {padding-bottom:50px;font-size:30px;color:{color:Background};text-transform:uppercase;font-weight:800;line-height:35px;}
+            .menus {padding-bottom:40px;}
+            .menus li {padding-bottom:10px;} 
+            .menus li a {color:white;text-decoration:none;text-transform:uppercase;font-size:20px;}
+            .menus li a:hover {color:{color:Variant};}
+            .search-box {background-color:{color:Text};height:64px;width:100%;position:relative;margin-bottom:50px;}
+            .search-text {background-color:{color:Text};border:none;padding:18px 0 0 20px;width:80%;color:{color:Text Dark};font-size:20px;}
+            .search-box .button {position:absolute;top:0;right:0;width:64px;height:64px;text-indent:-999px;border:none;background:{color:Text} url('http://static.tumblr.com/v7susgd/f4nmp89fg/search.png') top left no-repeat;display:block;cursor:pointer;}
+            .search-box .button:hover {background:{color:Text Dark} url('http://static.tumblr.com/v7susgd/f4nmp89fg/search.png') top left no-repeat;}
+            .members-box {margin-bottom:45px;}
+            .members-box h3 {color:{color:Background};text-decoration:none;text-transform:uppercase;padding-bottom:10px;}
+            .members-box li {float:left;margin:0 5px 5px 0;}
+            .members-box a {background-color:{color:Text};display:block;}
+            .members-box a:hover {background-color:{color:Text Dark};}
+            .members-box a img {margin:10px;}
+            .right-col-inner {padding:50px;}
+            .post {max-width:500px;margin-bottom:50px;padding-bottom:40px;border-bottom:2px solid {color:Variant};}
+            .post h2.title, .post h1.title {padding-bottom:10px;color:{color:Text Dark};text-transform:uppercase;font-weight:800;font-size:30px;}
+            .post h2.title a {color:{color:Text Dark};text-decoration:none;}
+            .post h2.title a:hover {color:{color:Variant};}
+            .post .post-details {padding-bottom:10px;color:{color:Text};font-size:15px;}
+            .post .post-details a {color:{color:Text};text-decoration:none;}
+            .post .post-details a:hover {opacity:.7;}
+            .post .counts {font-size:13px;color:{color:Text};font-style:italic;padding-bottom:10px;}
+            .post .counts a {font-size:13px;color:{color:Variant};}
+            .post .counts a:hover {opacity:.7;}
+            .post .like-and-reblog-buttons {float:right;list-style:none;}
+            .post .like-and-reblog-buttons li {float:right;margin-left:5px;}
+            .post .tags {padding-bottom:5px;}
+            .post .tags-list {list-style:none;margin:0;padding:0;}
+            .post .tags-list li {float:left;margin-right:5px;margin-bottom:5px;}
+            .post .tags-list li a {display:block;padding:10px 14px 10px 40px;background: rgba(0, 0, 0, 0.04) url('http://static.tumblr.com/v7susgd/CR3mp7qpm/tag.png') top left no-repeat;color:{color:Text};font-style:italic;text-decoration:none;}
+            .post .tags-list li a:hover {background: rgba(0, 0, 0, 0.1) url('http://static.tumblr.com/v7susgd/CR3mp7qpm/tag.png') top left no-repeat;}
+            .post-text-content {padding-bottom:10px;}
+            .post-text-content img {padding-bottom:10px;max-width: 100%;}
+            .post-text-content p {color:{color:Text};text-align:justify;font-size:15px;line-height:20px;}
+            .post-text-content p a {color:{color:Variant};text-decoration:underline;}
+            .post-text-content p a:hover {opacity:.5;}
+            .post-text-content blockquote {font-style:italic;color:{color:Text};padding:10px;border-left:2px solid {color:Variant};margin:10px;}
+            .post-link-link {background:{color:Variant};padding:20px 25px;display:block;margin-bottom:10px;color:white;font-style:italic;font-weight:600;font-size:20px;}
+            .post-link-link:hover {padding:20px 25px 20px 30px;background:{color:Text Dark};color:{color:Text};}
+            .post-text-content ul {padding:10px 25px;}
+            .post-text-content ul li { position:relative;color:{color:Text};}
+            .post-text-content ul li:before {
+                content:'';
+                display: block;
+                position: absolute;
+                width: 6px;
+                height:6px;
+                border-radius:6px;
+                left: -20px;
+                top: .4em;
+                background-color: {color:Variant};
+            }
+            .post-video {}
+            .post-video-vid {margin-bottom:10px;}
+            .post-chat-link {background:{color:Variant};padding:20px 25px;display:block;color:white;font-style:italic;font-weight:600;font-size:20px;}
+            .post-chat-link:hover {padding:20px 25px 20px 30px;background:{color:Text Dark};color:{color:Text};}
+            .chat {padding-bottom:10px;}
+            .chat li.odd, .chat li.even {color:{color:Text};padding:20px 25px;}
+            .chat li.odd .label, .chat li.even .label {font-weight:600;}
+            .chat li.odd {background:rgba(0, 0, 0, 0.04);font-style:italic;}
+            .chat li.even {background:rgba(0, 0, 0, 0.02);}
+            .post-quote-quote {background:{color:Text Dark};color:{color:Text};padding:20px 25px;display:block;font-style:italic;font-weight:600;font-size:20px;}
+            .post-quote-source {color:{color:Text};padding:20px 25px;background:rgba(0, 0, 0, 0.04);}
+            .post-quote-quotensource {padding-bottom:10px;}
+            .post-photo-pic {position:relative;margin-bottom:10px;}
+            .zoom .zoom-img {position:absolute;bottom:10px;right:10px;opacity:0;}
+            .zoom:hover .zoom-img {opacity:1;}
+            .post-panorama-pic {position:relative;margin-bottom:10px;}
+            .post-panorama-pic .zoom-img {position:absolute;bottom:10px;right:10px;opacity:0;}
+            .post-panorama-pic:hover .zoom-img {opacity:1;}
+            .photo-photoset-set {position:relative;margin-bottom:10px;}
+            .photoset a {opacity:1}
+            .photoset a:hover {opacity:.7;}
+            .copy {color:{color:Background};padding-bottom:150px;text-transform:uppercase;font-style:italic;font-size:13px;}
+            .copy span {color:{color:Text};}
+            .copy a {color:{color:Text};}
+            ol.notes {width:500px;}
+            ol.notes li {height:64px;display:block;overflow:hidden;}
+            ol.notes li .avatar_frame {float:left;}
+            ol.notes li .action {height:64px;line-height:64px;color:{color:Text};padding-left:10px;}
+            ol.notes li .action a {font-weight:600;text-decoration:none;color:{color:Text};}
+            ol.notes li:nth-child(odd) {background:rgba(0, 0, 0, 0.05);}
+            ol.notes li:nth-child(even) {background:rgba(0, 0, 0, 0.02);}
+            #disqus_thread {width:500px;margin-bottom:10px;}
+            .pagination {height:64px;background:rgba(0, 0, 0, 0.05);}
+            .pagination span.current_page {display:block;height:64px;width:64px;text-align:center;line-height:64px;background-color:{color:Text Dark};color:{color:background};float:left;margin-right:1px;font-style:italic;font-weight:600;font-size:18px;}
+            .pagination a.jump_page {display:block;height:64px;width:64px;text-align:center;line-height:64px;background-color:{color:Variant};color:#fff;float:left;margin-right:1px;text-decoration:none;font-weight:600;font-size:18px;}
+            .pagination a.jump_page:hover {background-color:{color:Text Dark};color:#fff;}
+            .pagination a.prev-page, .pagination a.next-page {display:block;height:64px;width:64px;float:left;margin-right:1px;text-decoration:none;font-weight:600;font-size:18px;}
+            .pagination a.next-page {background:{color:Variant} url('http://static.tumblr.com/v7susgd/7xSmp8dmn/next.png') top left no-repeat;}
+            .pagination a.next-page:hover {background:{color:Text Dark} url('http://static.tumblr.com/v7susgd/7xSmp8dmn/next.png') top left no-repeat;}
+            .pagination a.prev-page {background:{color:Variant} url('http://static.tumblr.com/v7susgd/DwJmp8djg/prev.png') top left no-repeat;}
+            .pagination a.prev-page:hover {background:{color:Text Dark} url('http://static.tumblr.com/v7susgd/DwJmp8djg/prev.png') top left no-repeat;}
+            #lightbox {position:absolute;top:0;left:0;width:100%;height:100%;text-align:center;}
+		    #lightbox p {text-align:right;color:#fff;margin:20px;font-size:12px;}
+		    #lightbox img {box-shadow:0 0 25px #111;-webkit-box-shadow:0 0 25px #111;-moz-box-shadow:0 0 25px #111;max-width:100%;}
+            a, 
+            a:hover,
+            .zoom .zoom-img,
+            .zoom:hover .zoom-img,
+            .post-panorama-pic .zoom-img,
+            .post-panorama-pic:hover .zoom-img,
+            .right-col .twitts,
+            .right-col .twitts:hover,
+            .search-box .button,
+            .search-box .button:hover {
+        	    -webkit-transition: all 0.2s linear;
+			    -moz-transition: all 0.2s linear;
+			    -o-transition: all 0.2s linear;
+			    transition: all 0.2s linear;
+            }
+            @media (min-width: 768px) and (max-width: 979px) {
+                .left-col-content .desc {font-size:20px;line-height:25px;}
+                .members-box img {width:50px;}
+                }
+            @media (max-width: 767px) {
+                .left-col-content .desc {font-size:18px;line-height:23px;}
+                .members-box img {width:45px;}
+                }
+ 
+            @media (max-width: 480px) {
+                .left-col-content .desc {font-size:15px;line-height:18px;}
+                .members-box img {width:40px;}
+                }
+        </style>
+        <style type="text/css" media="screen">
+            {CustomCSS}
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div class="left-col">
+                <div class="left-col-top">
+                    <ul class="social-links">
+                    {block:IfFacebookUsername}
+                        <li><a href="http://facebook.com/{text:FacebookUsername}"><img src="http://static.tumblr.com/v7susgd/YsDmp865s/ico-fb.png"/></a></li>
+                    {/block:IfFacebookUsername}
+                    {block:IfTwitterUsername}
+                        <li><a href="#"><img src="http://static.tumblr.com/v7susgd/07kmp86gv/ico-tw.png"/></a></li>
+                    {/block:IfTwitterUsername}
+                    {block:IfPinterestUsername}
+                        <li><a href="#"><img src="http://static.tumblr.com/v7susgd/aaymp86hi/ico-pin.png"/></a></li>
+                    {/block:IfPinterestUsername}
+                        <li><a href="{RSS}"><img src="http://static.tumblr.com/v7susgd/hwzmp86hz/ico-rss.png"/></a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+                <div class="branding">
+                    {block:IfHeaderImage}
+                    <a href="/"><img src="{image:Header}"/></a>
+                    {/block:IfHeaderImage}
+                    {block:IfNotHeaderImage}
+                    <a href="/"><h1>{Title}</h1></a>
+                    {/block:IfNotHeaderImage}
+                </div>
+                <div class="left-col-content">
+                    {block:IfShowDescription}
+                    {block:Description}
+                    <div class="desc">{Description}</div>
+                    {/block:Description}
+                    {block:IfShowdescription}
+                    <div class="menus">
+                        <ul>
+                            <li><a href="/">{lang:Home}</a></li>
+        	                {block:HasPages}
+				            {block:Pages}
+				            <li><a href="{URL}" class="link">{Label}</a></li>
+				            {/block:Pages}
+			                {/block:HasPages}
+    		                {block:ifShowArchiveLink}
+				            <li><a href="/archive" class="link">{lang:Archive}</a></li>
+			                {/block:ifShowArchiveLink}
+        	                {block:ifShowAskLink}
+    			            <li><a href="/ask" class="link">Ask</a></li>
+    		                {/block:ifShowAskLink}
+        	                {block:SubmissionsEnabled} 
+    			            <li><a href="/submit" class="link">Submit</a></li>
+                            {/block:SubmissionsEnabled} 
+                        </ul>
+                    </div>
+                    <div class="search-box">
+                        <form action="/search" method="get">
+                        <input class="search-text" type="text" name="q" value="{SearchQuery}" placeholder="{lang:Search}"/>
+                        <input class="button" type="submit" value="Search"/>
+                        </form>
+                    </div>
+                    {block:GroupMembers}
+                    <div class="members-box">
+                        <h3>{lang:Group members}</h3>
+                        <ul>
+                            {block:GroupMember}
+                            <li>
+                                <a href="{GroupMemberURL}" target="_blank"><img src="{GroupMemberPortraitURL-64}"/></a>
+                            </li>
+                            {/block:GroupMember}
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    {/block:GroupMembers}
+                    {block:Following}
+                    <div class="members-box">
+                        <h3>{lang:Following}</h3>
+                        <ul>
+                            {block:Followed}
+                            <li>
+                                <a href="{FollowedURL}" target="_blank"><img src="{FollowedPortraitURL-64}"/></a>
+                            </li>
+                            {/block:Followed}
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    {block:Following}
+                    <div class="copy">© {CopyrightYears} <span>{Title}</span> Made by {block:IfShowcopyright}<a href="http://drslash.com/" target="_blank">Drslash.com</a>{/block:IfShowcopyright}</div>
+                </div>
+            </div>
+            <div class="right-col">
+                {block:Twitter}
+                <div class="twitts" id="twitter">
+                    <div class="twitt-txt" id="tweets"></div>
+                </div>
+                {/block:Twitter}
+                <div class="right-col-inner">
+                    {block:Posts}
+
+                        {block:Photoset}
+                        <!-- PHOTOSET POST -->
+                        <div class="post post-photoset">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="photo-photoset-set">
+                                {block:Photos}
+                                <div class="post-photo-pic">
+                                
+                                <a href="{PhotoURL-1280}" class="zoom">
+                                <img class="zoom-img" src="http://static.tumblr.com/v7susgd/f4nmp89fg/search.png"/>
+                                <img src="{PhotoURL-500}"/>
+                                    
+                                </a>
+                                </div>
+                                {/block:Photos}
+                            </div>
+                            {block:Caption}
+                                <div class="post-text-content">{Caption}</div>
+                            {/block:Caption}
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Photoset}
+                    
+                        {block:Audio}
+                        <!-- AUDIO POST -->
+                        <div class="post post-audio">
+                            {AudioPlayerBlack}
+
+                            {block:Caption}
+                            <div class="post-text-content">{Caption}</div>
+                            {/block:Caption}
+                        </div>
+                        {/block:Audio}
+
+                        {block:Panorama}
+                        <!-- PANORAMA POST -->
+                        <div class="post post-panorama">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="post-panorama-pic">
+                            {LinkOpenTag}
+                                <img class="zoom-img" src="http://static.tumblr.com/v7susgd/f4nmp89fg/search.png"/>
+                                <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                            </div>
+                            {LinkCloseTag}
+                            {block:Caption}
+                            <div class="post-text-content">{Caption}</div>
+                            {/block:Caption}
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Panorama}
+                    
+                        {block:Photo}
+                        <!-- PHOTO POST -->
+                        <div class="post post-photo">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="post-photo-pic">
+                                <a href="{PhotoURL-1280}" class="zoom">
+                                    <img class="zoom-img" src="http://static.tumblr.com/v7susgd/f4nmp89fg/search.png"/>
+                                    <img src="{PhotoURL-500}" alt="{PhotoAlt}"/> 
+                                </a> 
+                            </div>
+                            {block:Caption}
+                            <div class="post-text-content">{Caption}</div>
+                            {/block:Caption}
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Photo}
+
+                        {block:Quote}
+                        <!-- QUOTE POST -->
+                        <div class="post post-quote">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="post-quote-quotensource">
+                                <div class="post-quote-quote">"{Quote}"</div>
+                                {block:Source}
+                                <div class="post-quote-source">{Source}</div>
+                                {/block:Source}
+                            </div>
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Quote}
+                    
+                        {block:Chat}
+                        <!-- CHAT POST -->
+                        <div class="post post-chat">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            {block:Title}
+                            <h3><a href="{Permalink}" class="post-chat-link">{Title}</a></h3>
+                            {/block:Title}
+
+                            <ul class="chat">
+                                {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+                                    {Line}
+                                </li>
+                                {/block:Lines}
+                            </ul>
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Chat}
+                    
+                        {block:Video}
+                        <!-- VIDEO POST -->
+                        <div class="post post-video">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <div class="post-video-vid">{Video-500}</div>
+                            {block:Caption}
+                            <div class="post-text-content">{Caption}</div>
+                            {/block:Caption}
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Video}
+                    
+                        {block:Text}
+                        <!-- TEXT POST -->
+                        <div class="post post-text">
+                            {block:Title}
+                            {block:IndexPage}
+                            <h2 class="title"><a href="{Permalink}">{Title}</a></h2>
+                            {block:IndexPage}
+                            {block:PermalinkPage}
+                            <h1 class="title">{Title}</h1>
+                            {block:PermalinkPage}
+                            {/block:Title}
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                </ul>
+                            </div>
+                            <div class="post-text-content">{Body}</div>
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Text}
+                        
+                        {block:Link}
+                        <!-- LINK POST -->
+                        <div class="post post-link">
+                            <div class="post-details">
+                                <span><a href="{Permalink}">{lang:Posted TimeAgo}</a></span>
+                                <ul class="like-and-reblog-buttons">
+                                    <li>{LikeButton}</li>
+                                    <li>{ReblogButton}</li>
+                                    <li><a class="dsq-comment-count" href="{Permalink}#disqus_thread"><img src="http://static.tumblr.com/v7susgd/erYmp8ch9/mess.png"/></a></li>
+                                </ul>
+                            </div>
+                            <a href="{URL}" class="post-link-link" {Target}>{Name}</a>
+                            {block:Description}
+                            <div class="post-text-content">{Description}</div>
+                            {/block:Description}
+                            {block:HasTags}
+                            <div class="tags">
+                                <ul class="tags-list">
+                                    {block:Tags}
+                                    <li><a href="{TagURL}" class="rounded">{Tag}</a></li>
+                                    {/block:Tags}
+                                </ul>
+                                <div class="clear"></div>
+                            </div>
+                            {/block:HasTags}
+                            <div class="counts">
+                                <ul>
+                                    {block:PostNotes}<li>{lang:This post has NoteCount notes}</li>{/block:PostNotes}
+                                    {block:RebloggedFrom}<li>{lang:PostTypeNoun reblogged from ReblogParentName}</li>{/block:RebloggedFrom} 
+                                    {/block:RebloggedFrom} 
+                                </ul>
+                            </div>
+                        </div>
+                        {/block:Link}
+                    {/block:Posts}
+                    
+                    {block:PermalinkPage}
+                    {block:IfDisqusShortname}
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                    var disqus_shortname = '{text:Disqus Shortname}';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    {/block:IfDisqusShortname}
+                    {/block:PermalinkPage}
+                    
+                    {block:PostNotes} 
+                        {PostNotes-64}
+                    {/block:PostNotes} 
+                    
+                </div>
+                {block:PermalinkPagination}
+                <div class="pagination">
+                    {block:PreviousPost}<a class="prev-page" href="{PreviousPost}"> </a>{/block:PreviousPost}
+                    {block:NextPost}<a href="{NextPost}" class="next-page"> </a>{/block:NextPost}
+                </div>
+                {/block:PermalinkPagination}
+                {block:Pagination}
+                    {block:IndexPage}
+                    <div class="pagination">
+                        {block:PreviousPage}
+                        <a href="{PreviousPage}" class="prev-page"> </a>
+                        {/block:PreviousPage}
+
+                        {block:JumpPagination length="4"}
+                        {block:CurrentPage}
+                        <span class="current_page">{PageNumber}</span>
+                        {/block:CurrentPage}
+
+                        {block:JumpPage}
+                        <a class="jump_page" href="{URL}">{PageNumber}</a>
+                        {/block:JumpPage}
+                        {/block:JumpPagination}
+
+                        {block:NextPage}
+                        <a href="{NextPage}" class="next-page"> </a>
+                        {/block:NextPage}
+                    </div>
+                    {/block:IndexPage}
+                {/block:Pagination}
+            </div>
+        </div>
+        <script type="text/javascript" src="http://static.tumblr.com/b5ckvmx/Atimogkl3/jquery.min.1.4.4.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('.zoom').click(function(e) {
+                e.preventDefault();
+		        var image_href = $(this).attr("href");
+		        if ($('#lightbox').length > 0) {
+                    $('#content').html('<img src="' + image_href + '" />');
+		   	        $('#lightbox').show();
+                    $("html, body").scrollTop(0);
+		        } else {
+                    var lightbox = '<div id="lightbox">' + '<p>Click to close</p>' + '<div id="content">' + '<img src="' + image_href +'" />' + '</div>' + '</div>';
+			        $('body').append(lightbox);
+                    $("html, body").scrollTop(0);
+		        }
+		
+	        });
+	        $('#lightbox').live('click', function() {
+                $('#lightbox').hide();
+	        });
+        });
+        </script>
+        <script type="text/javascript">
+            var $allVideos = $("iframe[src^='http://player.vimeo.com'], iframe[src^='http://www.youtube.com']"),
+            $fluidEl = $(".post");
+            $allVideos.each(function() {
+                $(this)
+                .data('aspectRatio', this.height / this.width)
+                .removeAttr('height')
+                .removeAttr('width');
+            });
+            $(window).resize(function() {
+                var newWidth = $fluidEl.width();
+                $allVideos.each(function() {
+                    var $el = $(this);
+                    $el
+                        .width(newWidth)
+                        .height(newWidth * $el.data('aspectRatio'));
+
+                    });
+            }).resize();
+        {block:Twitter}
+        function recent_tweets(data) {
+        for (i=0; i<1; i++) {
+            document.getElementById("tweets").innerHTML =
+                document.getElementById("tweets").innerHTML +
+                '<a href="http://twitter.com/{TwitterUsername}/status/' +
+                (data[i].id_str ? data[i].id_str : data[i].id) +
+                '">' + data[i].text + '</a>';
+        }
+        document.getElementById("twitter").style.display = 'block';
+        }
+        {/block:Twitter}
+        </script>
+        {block:Twitter}
+        <script type="text/javascript" src="/tweets.js"></script>
+        {/block:Twitter}
+    </body>
+</html>
